@@ -48,9 +48,9 @@ const MATCH_RULES: MatchRule[] = [
   { field: 'unit_price_usd', terms: ['price', 'unit price', 'cost', 'unit cost', 'fob', 'fob price', 'usd', 'amount', 'rate'], weight: 1 },
   { field: 'quantity', terms: ['qty', 'quantity', 'pcs', 'units', 'count', 'order qty', 'pieces', 'moq'], weight: 1 },
   { field: 'weight_kg', terms: ['weight', 'kg', 'mass', 'net weight', 'gross weight', 'wt', 'weight kg', 'weight (kg)'], weight: 0.8 },
-  { field: 'length_cm', terms: ['length', 'len', 'l cm', 'l(cm)', 'length cm', 'length (cm)', '长', '长(cm)', '长度'], weight: 0.8 },
-  { field: 'width_cm', terms: ['width', 'wid', 'w cm', 'w(cm)', 'width cm', 'width (cm)', '宽', '宽(cm)', '宽度'], weight: 0.8 },
-  { field: 'height_cm', terms: ['height', 'hgt', 'h cm', 'h(cm)', 'height cm', 'height (cm)', 'ht', '高', '高(cm)', '高度'], weight: 0.8 },
+  { field: 'length_cm', terms: ['length', 'len', 'l cm', 'l(cm)', 'l (cm)', 'length cm', 'length (cm)', '长', '长(cm)', '长度'], weight: 0.8 },
+  { field: 'width_cm', terms: ['width', 'wid', 'w cm', 'w(cm)', 'w (cm)', 'width cm', 'width (cm)', '宽', '宽(cm)', '宽度'], weight: 0.8 },
+  { field: 'height_cm', terms: ['height', 'hgt', 'h cm', 'h(cm)', 'h (cm)', 'height cm', 'height (cm)', 'ht', '高', '高(cm)', '高度'], weight: 0.8 },
   { field: 'source_url', terms: ['link', 'url', 'source', 'source url', 'product link', 'product url', '1688', 'alibaba', 'supplier link', 'webpage'], weight: 0.9 },
 ];
 

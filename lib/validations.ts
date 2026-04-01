@@ -1,0 +1,55 @@
+import { z } from 'zod';
+
+export const shipmentItemSchema = z.object({
+  id: z.string(),
+  shipment_id: z.string().optional(),
+  sku: z.string().max(100).optional(),
+  product_name: z.string().min(1, 'Product name is required').max(255),
+  hs_code: z.string().optional(),
+  unit_price_usd: z.number().min(0, 'Unit price must be non-negative'),
+  quantity: z.number().int().min(1, 'Quantity must be at least 1'),
+  weight_kg: z.number().min(0),
+  length_cm: z.number().min(0),
+  width_cm: z.number().min(0),
+  height_cm: z.number().min(0),
+  sort_order: z.number().int().optional(),
+});
+
+export const shipmentCostsSchema = z.object({
+  factory_inspection_usd: z.number().min(0).default(300),
+  china_inland_freight_usd: z.number().min(0).default(300),
+  export_customs_usd: z.number().min(0).default(100),
+  china_thc_usd: z.number().min(0).default(100),
+  bl_doc_fee_usd: z.number().min(0).default(75),
+  origin_agent_fee_usd: z.number().min(0).default(150),
+  ocean_freight_usd: z.number().min(0).default(2500),
+  bunker_surcharge_usd: z.number().min(0).default(0),
+  currency_adj_factor_usd: z.number().min(0).default(0),
+  peak_season_surcharge_usd: z.number().min(0).default(0),
+  marine_insurance_pct: z.number().min(0).default(0.004),
+  us_thc_usd: z.number().min(0).default(450),
+  us_customs_clearance_usd: z.number().min(0).default(225),
+  isf_filing_fee_usd: z.number().min(0).default(55),
+  customs_bond_usd: z.number().min(0).default(100),
+  mfn_duty_pct: z.number().min(0).default(0),
+  section_301_duty_pct: z.number().min(0).default(0.25),
+  mpf_pct: z.number().min(0).default(0.003464),
+  hmf_pct: z.number().min(0).default(0.00125),
+  drayage_usd: z.number().min(0).default(500),
+  warehouse_unloading_usd: z.number().min(0).default(350),
+  currency_exchange_fee_pct: z.number().min(0).default(0.01),
+  bank_wire_fee_usd: z.number().min(0).default(35),
+  miscellaneous_usd: z.number().min(0).default(0),
+  freight_per_kg_usd: z.number().min(0).default(5),
+  pickup_fee_usd: z.number().min(0).default(50),
+  delivery_fee_usd: z.number().min(0).default(50),
+});
+
+export const shipmentSchema = z.object({
+  name: z.string().min(1, 'Shipment name is required').max(255),
+  container_type: z.enum(['20ST', '40ST', '40HQ', '20RF', '40RF', 'LCL', 'FAST_DDP', 'SEA_DDP', 'AIR']),
+  origin_port: z.string().min(1).max(255),
+  destination_port: z.string().min(1).max(255),
+  shipping_date: z.string().optional(),
+  notes: z.string().max(5000).optional(),
+});

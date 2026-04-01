@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /d/UnitECon/landedcost -maxdepth 1 -name tailwind* -o -name globals.css)",
+      "Bash(npx next:*)",
+      "Bash(npx supabase:*)",
+      "Bash(vercel --prod)",
+      "Bash(vercel logs:*)",
+      "Bash(vercel inspect:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://landedcost-peach.vercel.app/app/new-shipment\")",
+      "Bash(curl -s \"https://landedcost-peach.vercel.app/app/new-shipment\")",
+      "Bash(vercel env:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vercel:*)",
+      "Bash(vercel --prod --yes)",
+      "Bash(curl:*)",
+      "Bash(gh auth:*)"
+    ]
+  }
+}
